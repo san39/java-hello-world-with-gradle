@@ -27,6 +27,6 @@ jobs:
           cf_org: 6fece677trial
           cf_space: prod
           run : pwd
-          command: push -f manifest.yml
+          #command: push -f manifest.yml
 
 
