@@ -30,7 +30,7 @@ jobs:
           
       - run: |
           ls '${{ github.workspace }}/build/libs'
-          cp '${{ github.workspace }}/build/libs/gs-spring-boot-0.1.0.jar'
+          cp '${{ github.workspace }}/build/libs/gs-spring-boot-0.1.0.jar' .
       - name: Step 6 - Deploy to CF
         uses: guerric-p/cf-cli-action@master
         with:
