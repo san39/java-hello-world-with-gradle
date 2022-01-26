@@ -40,6 +40,6 @@ jobs:
           cf_org: 6fece677trial
           cf_space: prod
           command: |
-            push MY-APP2 –p '${{ github.workspace }}/build/libs'/gs-spring-boot-0.1.0.jar
-            push gs-spring-boot-0.1.0.jar
+            cf push MY-APP2 –p '${{ github.workspace }}/build/libs'/gs-spring-boot-0.1.0.jar
+            cf push gs-spring-boot-0.1.0.jar
 
