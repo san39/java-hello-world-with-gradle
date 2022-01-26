@@ -26,6 +26,7 @@ jobs:
           cf_password: Azuredevops@123
           cf_org: 6fece677trial
           cf_space: prod
+          run : pwd
           command: push -f manifest.yml
-          run: ls
+
 
