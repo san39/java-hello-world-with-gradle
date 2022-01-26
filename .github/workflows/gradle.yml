@@ -38,5 +38,5 @@ jobs:
           cf_password: Azuredevops@123
           cf_org: 6fece677trial
           cf_space: prod
-          command: push MY-APP –p *.jar
+          command: push MY-APP –p '${{ github.workspace }}/build/libs/jb-hello-world-0.2.0.jar'
 
