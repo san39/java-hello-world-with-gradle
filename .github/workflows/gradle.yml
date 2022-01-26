@@ -21,12 +21,13 @@ jobs:
       - name: Step 6 - Deploy to CF
         uses: jhunt/cf-push@v1
         with:
-          cf_api: https://api.cf.ap21.hana.ondemand.com
-          cf_username: ramyaravindra999@gmail.com
-          cf_password: Azuredevops@123
-          cf_org: 6fece677trial
-          cf_space: prod
+          api: https://api.cf.ap21.hana.ondemand.com
+          username: ramyaravindra999@gmail.com
+          password: Azuredevops@123
+          org: 6fece677trial
+          space: prod
           run : pwd
+          manifest: manifest.yml
           #command: push -f manifest.yml
 
 
