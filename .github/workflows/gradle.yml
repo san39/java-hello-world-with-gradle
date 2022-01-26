@@ -32,7 +32,7 @@ jobs:
           ls '${{ github.workspace }}/build/libs'
           cp '${{ github.workspace }}/build/libs/gs-spring-boot-0.1.0.jar' .
       - name: Step 6 - Deploy to CF
-        uses: guerric-p/cf-cli-action@master
+        uses: citizen-of-planet-earth/cf-cli-action@master
         with:
           cf_api: https://api.cf.ap21.hana.ondemand.com
           cf_username: ramyaravindra999@gmail.com
@@ -42,4 +42,5 @@ jobs:
           command: |
             cf push MY-APP2 –p '${{ github.workspace }}/build/libs'/gs-spring-boot-0.1.0.jar
             cf push gs-spring-boot-0.1.0.jar
+          run: ls
 
