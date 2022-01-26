@@ -28,4 +28,4 @@ jobs:
         with:
           arguments: build
           
-      - run: ls '${{ github.workspace }}/target'
+      - run: ls '${{ github.workspace }}/build/libs'
