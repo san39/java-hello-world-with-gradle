@@ -2,23 +2,32 @@
 name: Java CI with Gradle
 
 on:
-  workflow_run:
-    workflows: [IAC deployment]
-    types: [completed]
-    branches: [master]
+  push:
+    branches:
+    - branch_cfdeploy
 
-
+#starting job
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
-      with:
-        arguments: build
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Step 1 - Checkout main branch from GitHub 
+        uses: actions/checkout@v2
+        
+      - run: |
+          ls '${{ github.workspace }}/build/libs'
+          cp '${{ github.workspace }}/build/libs/gs-spring-boot-0.1.0.jar' .
+      - name: Step 6 - Deploy to CF
+        uses: jhunt/cf-push@v1
+        with:
+          api: https://api.cf.ap21.hana.ondemand.com
+          username: ramyaravindra999@gmail.com
+          password: Azuredevops@123
+          org: 6fece677trial
+          space: prod
+          run : pwd
+          manifest: manifest.yml
+          #command: push -f manifest.yml
+
+
